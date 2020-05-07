@@ -26,7 +26,7 @@ endmacro()
 ########################
 package_add_test(Easy)
 # package_add_test(Medium)
-# package_add_test(Hard)
+package_add_test(Hard)
 
 ######################################
 # Run the tests after the compilation
