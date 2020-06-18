@@ -18,10 +18,12 @@
  * node = Node('root', Node('left', Node('left.left')), Node('right'))
  * assert deserialize(serialize(node)).left.left.val == 'left.left'
  */
-std::string serialize(Node) {
+std::string serialize(Node<std::string>) {
     std::string result;
     return result;
 }
+
+// TODO: Problem is still pending
 
 TEST(PROBLEM_3, ValidExample) {
     ASSERT_TRUE(true);
