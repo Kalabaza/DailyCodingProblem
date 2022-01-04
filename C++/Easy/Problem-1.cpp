@@ -11,24 +11,24 @@
  *
  * Bonus: Can you do this in one pass?
  */
-bool addUpTo(std::vector<int32_t> numbers, int32_t sum){
+bool addUpTo(const std::vector<int32_t> &numbers, int32_t sum){
     // Check the size of the list of numbers, it must have at least two numbers to do a sum of them
     if(numbers.size() <= 1)
         return false;
-    // Set used to hold the difference of a number and the sum:
+    // A set is used to hold the difference between a number and the expected sum k:
     // diff = sum - num
     std::set<int32_t> diffs;
+    // First, insert the difference between the sum and the first number in the list
     diffs.insert(sum - numbers[0]);
-    // The loop begins in the second number, since the difference with the sum and the first number
-    // was already saved in the set, the loop will check if there is a number equal to this difference
-    // in the remaining list of numbers
+    // The loop begins in the second number, the loop will check if there is a number equal to this
+    // difference in the remaining list of numbers
     for(uint index = 1; index < numbers.size(); ++index) {
         // If any previous difference is equal to the current number, it means that some previous number
         // plus the current one are equal to the target sum
         if(diffs.count(numbers[index]) != 0) {
             return true;
         }
-        // Otherwise insert the new difference to the set
+        // Otherwise insert the new difference to the set and take a new number
         diffs.insert(sum - numbers[index]);
     }
     // If this point is reached, it means that no two numbers were found that add up to the target sum
